@@ -21,24 +21,71 @@ useEffect(() => {
 
   return (
     <>
-   <div className='grid gap-3 p-2 max-w-full lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-1'>
-   {selector.map((item) => (
-    <div key={item.id} className='bg-fuchsia-600 p-2 sm:w-full flex flex-col justify-beside h-100 overflow-y-auto rounded relative'> 
-    <div> 
-        <h2 className='text-center font-bold text-indigo-800 border-b p-2'>{item.heading}</h2>
-    </div>
-    <div>
-        <h2 className='mt-2 font-lg font-bold text-start text-balance'>{item.body}</h2>
-    </div>
-    <div 
-    className='absolute top-1 right-1 rounded cursor-pointer hover:bg-white/20 p-1 ' 
-    onClick={() =>  handelClick(item.id)}
+<div className="grid gap-5 p-4 max-w-full 
+  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+
+  {selector.map((item) => (
+    <div
+      key={item.id}
+      className="
+        bg-white 
+        rounded-xl 
+        shadow-sm 
+        hover:shadow-md 
+        transition-all 
+        duration-300 
+        border 
+        border-gray-100 
+        p-5 
+        relative 
+        flex 
+        flex-col 
+        h-auto
+      "
     >
+      {/* Delete Button */}
+      <button
+        onClick={() => handelClick(item.id)}
+        className="
+          absolute top-3 right-3
+          p-2
+          rounded-full
+          hover:bg-gray-100
+          transition
+          active:scale-95
+        "
+      >
         <img width={20} src="../tras.svg" alt="Trash" />
+      </button>
+
+      {/* Heading */}
+      <h2 className="
+        text-lg 
+        font-semibold 
+        text-gray-800 
+        mb-3 
+        pr-8 
+        break-words
+      ">
+        {item.heading}
+      </h2>
+
+      {/* Body */}
+      <p className="
+        text-gray-600 
+        text-sm 
+        leading-relaxed 
+        whitespace-pre-wrap 
+        break-words
+      ">
+        {item.body}
+      </p>
+
     </div>
+  ))}
 </div>
-   ))}
-   </div>
+
+
     </>
   )
 }
