@@ -1,10 +1,24 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { removeNote } from '../features/notes'
 
 function AllNotes() {
-    const selector = useSelector((state) => state.notes)
-    console.log(selector);
-    
+    let selector = useSelector((state) => state.notes)
+    const dispatch = useDispatch()
+    const handelClick  = (id) =>{
+      dispatch(removeNote(id))
+    }
+
+useEffect(() => {
+  if(selector && selector.length > 0){
+    localStorage.setItem("task", JSON.stringify(selector));
+  } else {
+    localStorage.clear()
+  }
+  
+}, [selector]);
+
+
   return (
     <>
    <div className='grid gap-3 p-4 justify-center lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-1'>
@@ -16,7 +30,10 @@ function AllNotes() {
     <div>
         <h2 className='mt-2 font-lg font-bold text-start text-balance'>{item.body}</h2>
     </div>
-    <div className='absolute top-1 right-1 rounded cursor-pointer hover:bg-white/20 p-1 ' >
+    <div 
+    className='absolute top-1 right-1 rounded cursor-pointer hover:bg-white/20 p-1 ' 
+    onClick={() =>  handelClick(item.id)}
+    >
         <img width={20} src="../tras.svg" alt="Trash" />
     </div>
 </div>

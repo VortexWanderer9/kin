@@ -1,9 +1,7 @@
     import { createSlice, nanoid } from "@reduxjs/toolkit";
 
     const initialState = {
-        notes: [
-          { id: 1, heading: "make coffee", body: 'learn how to make coffee with in a month' }
-        ]
+      notes: JSON.parse(localStorage.getItem('task')) || []
       }
       
     const TasksSlice = createSlice({

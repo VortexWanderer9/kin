@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addNotes } from "../features/notes";
 
-const NoteCard = ({setVisible}) =>{
+const NoteCard = () =>{
     const [heading, setHeading] = useState("")
   const [body, setBody] = useState("")
   const dispatch = useDispatch()
@@ -18,7 +18,6 @@ return
         ))
         setBody("")
         setHeading("")
-        setVisible(prev => !prev)
    }
   
   }

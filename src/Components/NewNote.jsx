@@ -19,7 +19,7 @@ function NewNote() {
    <div> 
    {visible ?  <NoteCard /> : <AllNotes />}
    </div>
-    </>
+    </> 
   )
 }
 
