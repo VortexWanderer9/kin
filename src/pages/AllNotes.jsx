@@ -21,9 +21,9 @@ useEffect(() => {
 
   return (
     <>
-   <div className='grid gap-3 p-4 justify-center lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-1'>
+   <div className='grid gap-3 p-2 max-w-full lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-1'>
    {selector.map((item) => (
-    <div key={item.id} className='bg-fuchsia-600 p-2 flex flex-col justify-beside h-100 overflow-y-auto rounded relative'> 
+    <div key={item.id} className='bg-fuchsia-600 p-2 sm:w-full flex flex-col justify-beside h-100 overflow-y-auto rounded relative'> 
     <div> 
         <h2 className='text-center font-bold text-indigo-800 border-b p-2'>{item.heading}</h2>
     </div>
