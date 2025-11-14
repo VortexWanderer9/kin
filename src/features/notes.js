@@ -3,6 +3,7 @@
     const initialState = {
       notes: JSON.parse(localStorage.getItem('task')) || []
       }
+      console.log(initialState);
       
     const TasksSlice = createSlice({
        name: 'notes',

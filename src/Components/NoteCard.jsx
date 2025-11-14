@@ -3,30 +3,33 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addNotes } from "../features/notes";
 
-const NoteCard = () =>{
+const NoteCard = ({setVisible}) =>{
     const [heading, setHeading] = useState("")
   const [body, setBody] = useState("")
   const dispatch = useDispatch()
-  const clickHandel = () =>{
-   if(!heading && !body){
-return
-   } else {
-    dispatch(addNotes(
-        { heading,
-         body
-         }
-        ))
-        setBody("")
-        setHeading("")
-   }
-  
-  }
+        const clickHandel = () =>{
+        if(!heading && !body){
+            return
+        } else {
+            dispatch(addNotes({
+              heading,
+              body
+              }))
+              setBody("")
+              setHeading("")
+              close()
+        }}
+        const close = () =>{
+          setVisible(prev => !prev)
+        }
     return (
         <div className="w-full flex relative justify-center">
         <div className='absolute border border-black bg-black/20 p-5 mt-5 rounded flex flex-col gap-4'>
-          <div className='flex justify-between font-bold text-lg'>
+          <div className='flex items-center justify-between font-bold text-lg'>
           <h2>New Note</h2>
-          <h2>X</h2>
+          <h2 onClick={close}>
+            <img width={30} className="bg-white/10 hover:bg-white/20 cursor-pointer hover:rotate-z-45 duration-500 rounded-2xl" src="../x.svg" alt="" />
+          </h2>
           </div>
           <div>
         <input type="text" className='border outline-none py-1 px-2' value={heading} onChange={(e) => setHeading(e.target.value)} placeholder='Enter Note Heading' required/>

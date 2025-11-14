@@ -17,7 +17,7 @@ function NewNote() {
         </div>
     </div>
    <div> 
-   {visible ?  <NoteCard /> : <AllNotes />}
+   {visible ?  <NoteCard setVisible = {setVisible}/> : <AllNotes />}
    </div>
     </> 
   )
