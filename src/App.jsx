@@ -1,12 +1,15 @@
 import gsap from 'gsap'
 import './App.css'
-import NewNote from './Components/NewNote'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import AllNotes from './pages/AllNotes'
+import NavBar from './Components/NavBar'
 
 function App() {
   return (
     <>
-    
-      <div className="min-h-screen w-full bg-[#020617] relative">
+    <BrowserRouter>
+    <div className="min-h-screen w-full bg-[#020617] fixed overflow-auto">
   {/* Dark Radial Glow Background */}
   <div
     className="absolute inset-0 z-0"
@@ -15,10 +18,24 @@ function App() {
     }}
   />
   <div>
-      <NewNote />
+   <div className='absolute w-full'>
+<div>
+<NavBar />
+</div>
+   <div>
+   <Routes>
+      <Route path='/' element ={<Home />}/>
+      <Route path='/notes' element ={<AllNotes />}/>
+    </Routes>
+   </div>
+   </div>
   </div>
    
 </div>
+      
+    </BrowserRouter>
+    
+      
     </>
   )
 }
