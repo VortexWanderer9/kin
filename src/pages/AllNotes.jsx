@@ -28,14 +28,14 @@ useEffect(() => {
     <div
       key={item.id}
       className="
-        bg-white 
+        bg-white
         rounded-xl 
         shadow-sm 
         hover:shadow-md 
         transition-all 
         duration-300 
         border 
-        border-gray-100 
+        border-gray-100
         p-5 
         relative 
         flex 
@@ -53,6 +53,7 @@ useEffect(() => {
           hover:bg-gray-100
           transition
           active:scale-95
+          cursor-pointer
         "
       >
         <img width={20} src="../tras.svg" alt="Trash" />
@@ -62,10 +63,12 @@ useEffect(() => {
       <h2 className="
         text-lg 
         font-semibold 
-        text-gray-800 
         mb-3 
         pr-8 
         break-words
+        border-b 
+        text-center
+        text-cyan-600
       ">
         {item.heading}
       </h2>
